@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { NextResponse } from 'next/server'
 import jwtDecode from 'jwt-decode'
-import { getLineNotifyToken, saveUserSettings } from '../lib/linenotify'
+import { getLineNotifyToken } from '../lib/linenotify'
 import axios from 'axios'
 import { PrismaClient } from '@prisma/client'
 

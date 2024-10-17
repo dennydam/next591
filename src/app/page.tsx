@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import SubscribeButton from '../app/components/SubscribeButton'
+// import SubscribeButton from '../app/components/SubscribeButton'
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <div className='z-10 w-full max-w-5xl items-center justify-between font-mono text-sm text-center'>
         <h1 className='mb-8 text-4xl font-bold'>Subscribe to 591 House Notifications</h1>
         <p className='mb-8 text-xl'>Get instant updates on new house listings that match your criteria!</p>
-        <SubscribeButton />
+        {/* <SubscribeButton /> */}
       </div>
 
       {/* <div className='mt-16 flex justify-center'>

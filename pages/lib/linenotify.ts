@@ -1,6 +1,13 @@
-import fs from 'fs/promises'
+// import fs from 'fs/promises'
 import path from 'path'
 import axios from 'axios'
+import React from 'react';
+
+const Linenotify = () => {
+  return 
+};
+
+export default Linenotify;
 
 interface UserSettings {
   userId: string
@@ -52,29 +59,29 @@ export async function getLineNotifyToken(code: string): Promise<string> {
   return 'dummy_token'
 }
 
-export async function saveUserSettings(settings: UserSettings): Promise<void> {
-  console.log('saveUserSettings', settings)
-  console.log('SETTINGS_FILE', SETTINGS_FILE)
-  const data = await fs.readFile(SETTINGS_FILE, 'utf8').catch(() => '[]')
-  console.log('data', data)
-  const userSettings: UserSettings[] = JSON.parse(data)
-  console.log('userSettings', userSettings)
-  const index = userSettings.findIndex((s) => s.userId === settings.userId)
-  if (index !== -1) {
-    userSettings[index] = settings
-  } else {
-    userSettings.push(settings)
-  }
-  console.log('userSettings', userSettings)
+// export async function saveUserSettings(settings: UserSettings): Promise<void> {
+//   console.log('saveUserSettings', settings)
+//   console.log('SETTINGS_FILE', SETTINGS_FILE)
+//   const data = await fs.readFile(SETTINGS_FILE, 'utf8').catch(() => '[]')
+//   console.log('data', data)
+//   const userSettings: UserSettings[] = JSON.parse(data)
+//   console.log('userSettings', userSettings)
+//   const index = userSettings.findIndex((s) => s.userId === settings.userId)
+//   if (index !== -1) {
+//     userSettings[index] = settings
+//   } else {
+//     userSettings.push(settings)
+//   }
+//   console.log('userSettings', userSettings)
 
-  await fs.writeFile(SETTINGS_FILE, JSON.stringify(userSettings, null, 2))
-}
+//   await fs.writeFile(SETTINGS_FILE, JSON.stringify(userSettings, null, 2))
+// }
 
-export async function getUserSettings(userId: string): Promise<UserSettings | null> {
-  const data = await fs.readFile(SETTINGS_FILE, 'utf8').catch(() => '[]')
-  const userSettings: UserSettings[] = JSON.parse(data)
-  return userSettings.find((s) => s.userId === userId) || null
-}
+// export async function getUserSettings(userId: string): Promise<UserSettings | null> {
+//   const data = await fs.readFile(SETTINGS_FILE, 'utf8').catch(() => '[]')
+//   const userSettings: UserSettings[] = JSON.parse(data)
+//   return userSettings.find((s) => s.userId === userId) || null
+// }
 
 export async function verifyLineNotifyToken(token: string): Promise<boolean> {
   if (!token) {
